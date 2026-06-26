@@ -61,8 +61,13 @@
 `~/.bash_profile`의 `MEMORY_LIMIT` 값을 256MB → 512MB로 상향 조정하여 임시적으로 가용 메모리를 확보했다.
 
 ```bash
+# Before - 초기 설정
+export MEMORY_LIMIT=256
+
+# After - 조치
 sed -i 's/MEMORY_LIMIT=256/MEMORY_LIMIT=512/' ~/.bash_profile
 source ~/.bash_profile
+echo $MEMORY_LIMIT  # 512 확인
 ```
 
 ### Before & After 비교
@@ -144,8 +149,13 @@ source ~/.bash_profile
 `~/.bash_profile`의 `CPU_MAX_OCCUPY` 값을 90% → 50%로 하향 조정하여 CPU 부하가 임계치를 초과하지 않도록 제한했다.
 
 ```bash
+# Before - 초기 설정
+export CPU_MAX_OCCUPY=90
+
+# After - 조치
 sed -i 's/CPU_MAX_OCCUPY=90/CPU_MAX_OCCUPY=50/' ~/.bash_profile
 source ~/.bash_profile
+echo $CPU_MAX_OCCUPY  # 50 확인
 ```
 
 ### Before & After 비교
@@ -251,8 +261,13 @@ Worker-Thread-2: Socket_Pool_B 점유  → Shared_Memory_A 대기
 `~/.bash_profile`의 `MULTI_THREAD_ENABLE` 값을 `true` → `false`로 변경하여 멀티스레드 모드를 비활성화했다.
 
 ```bash
+# Before - 초기 설정
+export MULTI_THREAD_ENABLE=true
+
+# After - 조치
 sed -i 's/MULTI_THREAD_ENABLE=true/MULTI_THREAD_ENABLE=false/' ~/.bash_profile
 source ~/.bash_profile
+echo $MULTI_THREAD_ENABLE  # false 확인
 ```
 
 ### Before & After 비교
